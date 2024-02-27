@@ -1,5 +1,5 @@
-import "./globals.css";
 import "antd/dist/reset.css";
+import "@assets/styles/tailwind.scss";
 
 import MainLayout from "./MainLayout";
 import type { Metadata } from "next";
@@ -17,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body><MainLayout>{children}</MainLayout></body>
+      <body>
+        <MainLayout>{children}</MainLayout>
+      </body>
     </html>
   );
 }
