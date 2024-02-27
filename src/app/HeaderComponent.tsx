@@ -1,8 +1,8 @@
 "use client";
 
 import { FC } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import StickyHeader from "./StickyHeader";
 
 const Header: FC = () => {
@@ -19,7 +19,7 @@ const Header: FC = () => {
             alt="logo"
             className="max-w-[155px]"
             width={155}
-            height={80}
+            height={39}
           />
         </Link>
       </div>

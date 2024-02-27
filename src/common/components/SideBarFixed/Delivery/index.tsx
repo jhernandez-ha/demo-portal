@@ -1,10 +1,11 @@
-import { usePathname } from "next/navigation";
 import { FC, useEffect, useState } from "react";
-import { PiTextIndent } from "react-icons/pi";
-import MenuItemsList from "./components/MenuItemsList";
-import { MenuItems } from "../../../../app/SideBar/MenuItems";
+
 import { LeftSideBarFixedProps } from "./interface";
+import { MenuItems } from "../../../../app/SideBar/MenuItems";
+import MenuItemsList from "./components/MenuItemsList";
+import { PiTextIndent } from "react-icons/pi";
 import { getActiveMainMenuIndex } from "../Infrastructure/SideBarFixedFunctions";
+import { usePathname } from "next/navigation";
 
 const LeftSideBarFixed: FC<LeftSideBarFixedProps> = ({
   isExpanded,
@@ -50,7 +51,7 @@ const LeftSideBarFixed: FC<LeftSideBarFixedProps> = ({
         onClick={() => setIsExpanded(!isExpanded)}
         aria-label="open sidebar"
       >
-        <PiTextIndent className="h-auto w-9 " size="xl" />
+        <PiTextIndent className="h-auto w-9 " />
       </div>
       <MenuItemsList
         isExpanded={isExpanded}

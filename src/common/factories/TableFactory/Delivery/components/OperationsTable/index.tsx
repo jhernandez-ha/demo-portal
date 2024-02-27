@@ -3,7 +3,13 @@ import { Space, TableProps, Tag } from "antd";
 import React from "react";
 import TableTemplate from "@/common/templates/Table/Delivery";
 
-const OperationTable = () => {
+const OperationsTable = ({
+  tableData,
+  config,
+}: {
+  tableData: Utility.JSONValue[] | [];
+  config: TableProps;
+}) => {
   const columns: TableProps<Utility.JSONValue>["columns"] = [
     {
       title: "Name",
@@ -61,47 +67,18 @@ const OperationTable = () => {
       },
     },
   ];
-  const data: Utility.JSONValue[] = [
-    {
-      key: "1",
-      firstName: "John",
-      lastName: "Brown",
-      age: 32,
-      address: "New York No. 1 Lake Park",
-      tags: ["nice", "developer"],
-    },
-    {
-      key: "2",
-      firstName: "Jim",
-      lastName: "Green",
-      age: 42,
-      address: "London No. 1 Lake Park",
-      tags: ["loser"],
-    },
-    {
-      key: "3",
-      firstName: "Joe",
-      lastName: "Black",
-      age: 27,
-      address: "Sydney No. 1 Lake Park",
-      tags: ["cool", "teacher"],
-    },
-    {
-      key: "4",
-      firstName: "Sald",
-      lastName: "Poor",
-      age: 38,
-      address: "Sydney No. 1 Lake Park",
-      tags: ["cool", "nice"],
-    },
-  ];
 
   const options: TableProps = {
-    title: () => "Tabla Operaciones",
+    title: () => "Tabla de Operaciones",
+    ...config,
   };
   return (
-    <TableTemplate columns={columns} columnsData={data} options={options} />
+    <TableTemplate
+      columns={columns}
+      columnsData={tableData}
+      options={options}
+    />
   );
 };
 
-export default OperationTable;
+export default OperationsTable;
