@@ -18,6 +18,7 @@ const OperationTable = () => {
       dataIndex: "age",
       key: "age",
       sorter: (a, b) => a.age - b.age,
+      defaultSortOrder: "ascend",
       width: "10%",
     },
     {
@@ -53,7 +54,7 @@ const OperationTable = () => {
       render: (_, record) => {
         return (
           <Space size="middle">
-            <a>Invite {record.name}</a>
+            <a>Invite {record.firstName}</a>
             <a>Delete</a>
           </Space>
         );

@@ -1,10 +1,7 @@
 declare namespace Utility {
-  type TableColumns = {
-    title: string;
-    dataIndex: string;
-    key: string;
-    render?: (...args: unknown[]) => JSX.Element | JSX.Element[];
-  };
+  interface TableColumn extends TableProps {
+    filterByColumn: boolean;
+  }
 
   type JSONValue = Record<string, any>;
 }
