@@ -1,9 +1,10 @@
 "use client";
 
 import { FC } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import StickyHeader from "./StickyHeader";
+import Image from "next/image";
+import StickyHeader from "./components/StickyHeader";
+import HeaderMenuRight from "./components/HeaderMenuRight";
 
 const Header: FC = () => {
   return (
@@ -43,7 +44,7 @@ const Header: FC = () => {
         </div>
 
         <div className="flex items-center justify-between">
-          {/* <HeaderMenuRight /> */}
+          <HeaderMenuRight />
         </div>
       </div>
     </StickyHeader>

@@ -1,11 +1,10 @@
 "use client";
 
 import { FC, useState } from "react";
-import { StyleProvider, createCache, extractStyle } from "@ant-design/cssinjs";
-
-import Header from "./HeaderComponent";
 import SideBar from "@/common/templates/SideBar/Delivery";
+import Header from "@/common/components/Header/Delivery";
 import { useServerInsertedHTML } from "next/navigation";
+import { StyleProvider, createCache, extractStyle } from "@ant-design/cssinjs";
 
 type MainLayoutProps = {
   children: React.ReactNode;
