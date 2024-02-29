@@ -1,0 +1,84 @@
+.menu-expansible-container {
+  @apply fixed start-[116px] top-[91px] z-50 hidden;
+  @apply h-full w-0;
+  @apply overflow-x-hidden duration-200;
+  @apply xl:flex;
+}
+
+.menu-expanded {
+  @apply w-[220px];
+}
+
+.simplebar-menu-expansible {
+  @apply h-[calc(100vh_-_100px)] min-w-[220px] pe-2.5;
+}
+
+.menu-expansible-title {
+  @apply mb-3 text-xs font-normal uppercase tracking-widest text-gray-500;
+}
+
+.menu-expansible-link-container {
+  @apply flex flex-col gap-2;
+}
+
+.submenu-link {
+  @apply flex items-center justify-between gap-3;
+  @apply rounded-2xl;
+  @apply px-4 py-2;
+  @apply font-medium;
+  @apply duration-200;
+}
+
+.submenu-link-active {
+  @apply bg-gray-100 text-primary;
+  @apply dark:bg-gray-100 dark:text-primary;
+}
+
+.submenu-link-inactive {
+  @apply hover:bg-gray-100 hover:text-gray-900;
+}
+
+.submenu-item-container {
+  @apply flex items-center gap-2 truncate;
+}
+
+.submenu-item-icon {
+  @apply h-5 w-5;
+}
+
+.submenu-item-text {
+  @apply truncate;
+}
+
+.submenu-accordeon-header {
+  @apply flex items-center gap-3;
+}
+
+.submenu-accordeon-link {
+  @apply ml-3.5 mb-0.5 pl-3.5 py-2;
+  @apply flex items-center justify-between;
+  @apply rounded-md font-medium capitalize text-primary;
+  @apply duration-200;
+  @apply last-of-type:mb-1;
+  @apply lg:last-of-type:mb-2;
+  @apply 2xl:ml-5;
+}
+
+.submenu-accordeon-container {
+  @apply flex items-center truncate;
+}
+
+.submenu-accordeon-list-point {
+  @apply me-[18px] ms-1;
+  @apply inline-flex;
+  @apply h-1 w-1 rounded-full;
+  @apply bg-current bg-primary;
+  @apply text-primary;
+  @apply ring-[1px] ring-black;
+}
+
+.ant-collapse-content-box
+  > .submenu-accordeon-link:hover
+  .submenu-accordeon-list-point {
+  @apply ring-[#e61747] bg-[#e61747];
+}

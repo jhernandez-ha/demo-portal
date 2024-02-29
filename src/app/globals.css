@@ -55,15 +55,6 @@ body {
   background-color: #0d2845;
 }
 
-.sidebar-fixed-active {
-  background-color: #e61747;
-  color: white;
-}
-
 .ant-collapse-content-box > a:hover {
   color: #e61747;
-}
-
-.ant-collapse-content-box > a:hover .punto-lista {
-  @apply ring-[#e61747];
 }

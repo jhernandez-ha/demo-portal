@@ -1,0 +1,39 @@
+.header-container {
+  @apply sticky top-0 z-[990];
+  @apply flex items-center justify-between;
+  @apply bg-gray-0/80 dark:bg-gray-50/50 backdrop-blur-xl;
+  @apply p-4;
+  @apply md:px-5;
+  @apply lg:px-6;
+  @apply xl:ms-[100px] xl:pe-8;
+}
+
+// .logo-desktop-container {
+//   //   @apply hidden items-center gap-3 xl:flex;
+// }
+
+.header-link {
+  @apply me-4 shrink-0 lg:me-5 block;
+}
+
+.logo-desktop {
+  @apply max-w-[155px];
+}
+
+.header-gadgets-container {
+  @apply flex  items-center justify-between gap-5;
+  @apply w-full;
+  @apply xl:w-[calc(100%_-_190px)];
+  @apply 2xl:w-[calc(100%_-_310px)];
+  @apply 3xl:gap-6;
+}
+
+.header-left-container {
+  @apply flex items-center;
+  @apply max-w-2xl;
+  @apply xl:w-auto;
+}
+
+.header-right-container {
+  @apply flex items-center justify-between;
+}

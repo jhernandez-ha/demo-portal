@@ -11,9 +11,9 @@ const MenuItemsList: FC<MenuItemsListProps> = ({
   setMenuItems,
 }) => {
   return (
-    <menu className="flex w-full justify-center">
-      <SimpleBar className="h-[calc(100vh_-_105px)] w-full pb-5">
-        <ul className="flex flex-col gap-6">
+    <menu className="menu-items-container">
+      <SimpleBar className="menu-items-simplebar">
+        <ul className="menu-item-list">
           {MenuItems.map((menu) => (
             <MenuItem
               key={menu.id}

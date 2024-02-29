@@ -1,0 +1,55 @@
+.fixed-menu-container {
+  @apply fixed start-0 top-0 z-50 hidden;
+  @apply h-screen w-[100px]  py-3.5;
+  @apply xl:flex flex-col items-center gap-10;
+  @apply dark:bg-gray-0 bg-[#0d2845];
+}
+
+.fixed-menu-expand-button {
+  @apply rounded-full;
+  @apply p-1;
+  @apply bg-transparent transition-colors hover:bg-white  hover:text-[#0d2845];
+  @apply text-white;
+  @apply cursor-pointer;
+}
+
+.expand-button {
+  @apply h-auto w-9;
+}
+
+.menu-items-container {
+  @apply flex w-full justify-center;
+}
+
+.menu-items-simplebar {
+  @apply h-[calc(100vh_-_105px)] w-full pb-5;
+}
+
+.menu-item-list {
+  @apply flex flex-col gap-6;
+}
+
+.menu-item {
+  @apply flex  flex-col items-center gap-1.5 pb-1.5 cursor-pointer;
+}
+
+.menu-item-icon-container {
+  @apply rounded-3xl bg-gray-0/0;
+  @apply px-4 py-2;
+  @apply transition-colors duration-200;
+  @apply group-hover:bg-gray-50 group-hover:text-gray-900;
+  @apply dark:group-hover:bg-gray-100;
+  @apply text-white;
+}
+
+.sidebar-fixed-active {
+  @apply bg-[#e61747];
+}
+
+.menu-item-icon {
+  @apply h-auto w-6;
+}
+
+.menu-item-text {
+  @apply text-white;
+}

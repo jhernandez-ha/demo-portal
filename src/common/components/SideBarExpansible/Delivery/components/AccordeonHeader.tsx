@@ -6,7 +6,7 @@ const AccordeonHeader: FC<MenuExpansibleItemProps> = ({ item }) => {
 
   return (
     <div>
-      <span className={"flex items-center gap-3 "}>
+      <span className="submenu-accordeon-header">
         <Icon className="h-5 w-5" />
         {item.name}
       </span>

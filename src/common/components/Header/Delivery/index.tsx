@@ -9,24 +9,20 @@ import HeaderMenuRight from "./components/HeaderMenuRight";
 const Header: FC = () => {
   return (
     <StickyHeader>
-      <div className="hidden items-center gap-3 xl:flex">
-        <Link
-          aria-label="Site Logo"
-          href={"/"}
-          className="me-4 hidden w-[155px] shrink-0 text-gray-800 hover:text-gray-900 lg:me-5 xl:block"
-        >
+      <div className="logo-desktop-container">
+        <Link aria-label="Site Logo" href={"/"} className="header-link">
           <Image
             src="/Logotipo_Wipay_transparent.png"
             alt="logo"
-            className="max-w-[155px]"
+            className="logo-desktop"
             width={155}
             height={39}
           />
         </Link>
       </div>
 
-      <div className="flex w-full items-center justify-between gap-5 xl:w-[calc(100%_-_190px)] 2xl:w-[calc(100%_-_310px)] 3xl:gap-6">
-        <div className="flex max-w-2xl items-center xl:w-auto">
+      <div className="header-gadgets-container">
+        <div className="header-left-container">
           {/* <HamburgerButton
             view={<Sidebar className="static w-full 2xl:w-full" />}
           />
@@ -43,7 +39,7 @@ const Header: FC = () => {
           /> */}
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="header-right-container">
           <HeaderMenuRight />
         </div>
       </div>
