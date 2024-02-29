@@ -10,7 +10,7 @@ export default class TableFactory {
 
   static create(
     type: TableTypes,
-    tableData: Utility.JSONValue[] | [],
+    tableData: Utility.OperationTableData[] | [],
     config: TableProps
   ) {
     const Component = TableFactory.componentsMap[type];

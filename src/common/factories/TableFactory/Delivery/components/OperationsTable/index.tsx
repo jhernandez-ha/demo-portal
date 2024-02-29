@@ -1,70 +1,109 @@
-import { Space, TableProps, Tag } from "antd";
+import "moment/locale/es";
 
-import React from "react";
+import { addStyleToPrice, formatNumberToDecimal } from "@/utils/formatters";
+
+import OperationMethod from "../OperationMethod";
+import { TableProps } from "antd";
 import TableTemplate from "@/common/templates/Table/Delivery";
+import moment from "moment";
+
+type MerchantFilterType = {
+  text: number;
+  value: number;
+};
 
 const OperationsTable = ({
   tableData,
   config,
 }: {
-  tableData: Utility.JSONValue[] | [];
+  tableData: Utility.OperationTableData[] | [];
   config: TableProps;
 }) => {
+  const uniqueMerchantsIds = new Set<number>();
+
+  const merchantsFilters: MerchantFilterType[] = tableData
+    .filter((item) => typeof item.merchantId === "number")
+    .map((item) => {
+      const merchantId = item.merchantId;
+      // Filtrado comercios
+      if (!uniqueMerchantsIds.has(merchantId)) {
+        uniqueMerchantsIds.add(merchantId);
+        return {
+          text: merchantId,
+          value: merchantId,
+        };
+      } else {
+        return undefined;
+      }
+    })
+    .filter((item) => item !== undefined) as MerchantFilterType[];
+  const currency = "€";
   const columns: TableProps<Utility.JSONValue>["columns"] = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-      render: (_, record) => {
-        return record.firstName + " " + record.lastName;
-      },
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
     },
     {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
-      sorter: (a, b) => a.age - b.age,
+      title: "Fecha",
+      dataIndex: "date",
+      key: "date",
+      sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
       defaultSortOrder: "ascend",
-      width: "10%",
-    },
-    {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-    },
-    {
-      title: "Tags",
-      key: "tags",
-      dataIndex: "tags",
-      render: (_, { tags }) => {
+      render: (date) => {
+        const momentDate = moment(date);
+        const formattedDate = momentDate.format("D [de] MMMM,YYYY").split(",");
+        const minutes = momentDate.format("hh:mm A");
         return (
-          <>
-            {tags.map((tag: string) => {
-              let color = tag.length > 5 ? "geekblue" : "green";
-              if (tag === "loser") {
-                color = "volcano";
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-          </>
+          <span>
+            <p>{formattedDate[0]},</p>
+            <p>{formattedDate[1]}</p>
+            <p>{minutes},</p>
+          </span>
         );
       },
     },
     {
-      title: "Action",
-      key: "action",
+      title: "Importe",
+      key: "quantity",
+      dataIndex: "quantity",
+      render: (quantity) => {
+        const { colorClass, priceString } = addStyleToPrice(quantity, currency);
+        return <span className={colorClass}>{priceString}</span>;
+      },
+    },
+    {
+      title: "Método",
+      dataIndex: "method",
+      key: "method",
       render: (_, record) => {
         return (
-          <Space size="middle">
-            <a>Invite {record.firstName}</a>
-            <a>Delete</a>
-          </Space>
+          <OperationMethod
+            cardNumber={record.cardNumber}
+            operationBrand={record.operationBrand}
+          />
         );
       },
+    },
+    {
+      title: "Num. Terminal",
+      key: "terminalId",
+      dataIndex: "terminalId",
+    },
+    {
+      title: "Num. Comercio",
+      key: "merchantId",
+      dataIndex: "merchantId",
+      filters: merchantsFilters,
+      onFilter: (value, record) => {
+        console.log(record);
+        return record.merchantId === value;
+      },
+    },
+    {
+      title: "Código",
+      dataIndex: "operationType",
+      key: "operationType",
     },
   ];
 
