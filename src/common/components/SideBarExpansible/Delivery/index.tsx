@@ -10,13 +10,11 @@ const LeftSideExpandible: FC<LeftSideExpandibleProps> = ({
 }) => {
   return (
     <div
-      className={`fixed start-[116px] top-[91px] z-50 hidden h-full w-0 overflow-x-hidden duration-200 xl:flex ${!!isExpanded && "w-[220px]"}`}
+      className={`menu-expansible-container ${isExpanded && "menu-expanded"}`}
     >
-      <SimpleBar className="h-[calc(100vh_-_100px)] min-w-[220px] pe-2.5">
-        <p className="mb-3 font-lexend text-xs font-normal uppercase tracking-widest text-gray-500">
-          {selectedMenu.title}
-        </p>
-        <div className="flex flex-col gap-2">
+      <SimpleBar className="simplebar-menu-expansible">
+        <p className="menu-expansible-title">{selectedMenu.title}</p>
+        <div className="menu-expansible-link-container">
           {selectedMenu.menuItems.map((menu) => (
             <Fragment key={menu.name}>
               {menu.href ? (

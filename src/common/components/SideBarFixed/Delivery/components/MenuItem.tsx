@@ -20,16 +20,13 @@ const MenuItem: FC<MenuItemProps> = ({
   }
 
   return (
-    <li
-      onClick={handleClick}
-      className="group flex cursor-pointer flex-col items-center gap-1.5 pb-1.5 "
-    >
+    <li onClick={handleClick} className="group menu-item ">
       <span
-        className={`rounded-3xl bg-gray-0/0 px-4 py-2  transition-colors duration-200 group-hover:bg-gray-50 group-hover:text-gray-900 dark:group-hover:bg-gray-100 ${isActive ? `sidebar-fixed-active` : "text-white"}`}
+        className={`menu-item-icon-container ${isActive && `sidebar-fixed-active`}`}
       >
-        <Icon className="h-auto w-6" />
+        <Icon className="menu-item-icon" />
       </span>
-      <span className="text-white">{menu.name}</span>
+      <span className="menu-item-text">{menu.name}</span>
     </li>
   );
 };

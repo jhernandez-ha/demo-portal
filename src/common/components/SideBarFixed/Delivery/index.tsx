@@ -45,13 +45,13 @@ const LeftSideBarFixed: FC<LeftSideBarFixedProps> = ({
   }, [width, pathname]);
 
   return (
-    <aside className="fixed start-0 top-0 z-50 hidden h-screen w-[100px] flex-col items-center gap-10 py-3.5 xl:flex dark:bg-gray-0 sidebar-fixed-container">
+    <aside className="fixed-menu-container">
       <div
-        className="rounded-full p-1 bg-transparent text-white transition-colors hover:bg-gray-300  hover:text-gray-900"
+        className="fixed-menu-expand-button"
         onClick={() => setIsExpanded(!isExpanded)}
         aria-label="open sidebar"
       >
-        <PiTextIndent className="h-auto w-9 " />
+        <PiTextIndent className="expand-button " />
       </div>
       <MenuItemsList
         isExpanded={isExpanded}

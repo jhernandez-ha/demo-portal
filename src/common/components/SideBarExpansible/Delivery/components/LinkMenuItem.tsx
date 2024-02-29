@@ -10,18 +10,14 @@ const LinkMenuItem: FC<MenuExpansibleItemProps> = ({ item }) => {
   return (
     <Link
       href={item.href ?? "/"}
-      className={`flex items-center justify-between gap-3 rounded-2xl  px-4 py-2 font-medium duration-200 
-        ${
-          isActive
-            ? "bg-gray-100 text-primary dark:bg-gray-100 dark:text-primary"
-            : "hover:bg-gray-100 hover:text-gray-900"
-        }`}
+      className={`submenu-link 
+        ${isActive ? "submenu-link-active" : "submenu-link-inactive"}`}
     >
-      <div className="flex items-center gap-2 truncate">
+      <div className="submenu-item-container">
         <span>
-          <Icon className="h-5 w-5" />
+          <Icon className="submenu-item-icon" />
         </span>
-        <span className="truncate">{item.name}</span>
+        <span className="submenu-item-text">{item.name}</span>
       </div>
     </Link>
   );

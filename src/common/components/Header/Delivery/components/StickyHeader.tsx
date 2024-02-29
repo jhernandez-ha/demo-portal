@@ -32,7 +32,7 @@ const StickyHeader: FC<StickyHeaderProps> = ({ offset = 2, children }) => {
 
   return (
     <header
-      className={`sticky top-0 z-[990] flex items-center bg-gray-0/80 p-4 backdrop-blur-xl dark:bg-gray-50/50 md:px-5 lg:px-6 xl:ms-[100px]  justify-between bg-white xl:pe-8   ${((isMounted && scrollPosition) as number) > offset ? "card-shadow" : ""} `}
+      className={`header-container  ${((isMounted && scrollPosition) as number) > offset ? "card-shadow" : ""} `}
     >
       {children}
     </header>

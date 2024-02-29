@@ -5,7 +5,7 @@ import PopoverContent from "./PopoverContent";
 const HeaderMenuRight: FC = () => {
   return (
     <Popover content={<PopoverContent />} trigger={"click"}>
-      <p className="cursor-pointer hover:font-bold text-lg">Antonio</p>
+      <p className="settings-avatar">Antonio</p>
     </Popover>
   );
 };
