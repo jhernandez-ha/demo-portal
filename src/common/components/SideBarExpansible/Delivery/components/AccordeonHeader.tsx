@@ -7,7 +7,7 @@ const AccordeonHeader: FC<MenuExpansibleItemProps> = ({ item }) => {
   return (
     <div>
       <span className="submenu-accordeon-header">
-        <Icon className="h-5 w-5" />
+        <Icon className="submenu-item-icon" />
         {item.name}
       </span>
     </div>

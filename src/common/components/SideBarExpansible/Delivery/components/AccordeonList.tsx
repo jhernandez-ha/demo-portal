@@ -12,8 +12,8 @@ const AccordeonList: FC<AccordeonListProps> = ({ subMenuItems }) => {
           className="submenu-accordeon-link"
         >
           <div className="submenu-accordeon-container">
-            <span className={"submenu-accordeon-list-point"} />
-            <span className="truncate">{item?.name}</span>
+            <span className="submenu-accordeon-list-point" />
+            <span className="submenu-item-text">{item?.name}</span>
           </div>
         </Link>
       );
