@@ -1,16 +1,39 @@
 import ExcelJS from "exceljs";
+import autoTable from "jspdf-autotable";
 import jsPDF from "jspdf";
 import saveAs from "file-saver";
+import wipayLogo from "../../public/Logotipo_Wipay_transparent.png";
+
+type pdfOrientation = "landscape" | "portrait";
 
 export const exportToPDF = (
-  data: Utility.JSONValue | Utility.JSONValue[],
-  fileName: string
+  data: Utility.JSONValue[],
+  fileName: string,
+  orientation: pdfOrientation = "landscape"
 ) => {
-  const pdf = new jsPDF();
-  data.forEach((item: Utility.JSONValue, index: number) => {
-    pdf.text(JSON.stringify(item), 10, 10 + index * 10);
-  });
-  pdf.save(`${fileName}_data.pdf`);
+  if (data.length !== 0) {
+    const pdf = new jsPDF(orientation);
+
+    const headers = Object.keys(data[0]);
+    const pdfData = data.map((item) => headers.map((header) => item[header]));
+    pdf.addImage(wipayLogo.src, "PNG", 15, 10, 40, 10);
+    autoTable(pdf, {
+      head: [headers],
+      body: pdfData,
+      tableWidth: "wrap",
+      theme: "grid",
+      headStyles: {
+        fontStyle: "bold",
+        fillColor: "#0d2845",
+      },
+      startY: 30,
+      styles: {
+        cellWidth: "wrap",
+      },
+    });
+
+    pdf.save(`${fileName}_data.pdf`);
+  }
 };
 
 export const exportToExcel = async (

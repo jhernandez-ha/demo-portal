@@ -1,6 +1,7 @@
 import { FC, useMemo, useRef, useState } from "react";
 import { Input, InputRef, Table, TableProps } from "antd";
 
+import { SearchOutlined } from "@ant-design/icons";
 import TableFooter from "./TableFooter/Delivery";
 import { TableTemplateProps } from "./interface";
 import getColumnSearchProps from "./ColumnSearchPanel/Delivery";
@@ -58,8 +59,8 @@ const TableTemplate: FC<TableTemplateProps> = ({
         defaultPageSize: 10,
         hideOnSinglePage: true,
       },
+      rowSelection: {},
       footer: footer,
-
       ...options,
     };
 
@@ -74,6 +75,7 @@ const TableTemplate: FC<TableTemplateProps> = ({
     <div className="tableContainer">
       <div>
         <Input
+          prefix={<SearchOutlined />}
           placeholder="Buscar..."
           value={searchText}
           onChange={(e) => handleMainSearch(e, setSearchText)}
