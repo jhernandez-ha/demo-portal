@@ -7,9 +7,13 @@ export type TableFactoryType = {
     name,
   }: {
     tableData: Utility.OperationTableData[] | [];
-    config: TableProps;
+    config: TableOptions;
     name: string;
   }) => JSX.Element;
 };
+
+export interface TableOptions extends TableProps {
+  tableName: string;
+}
 
 export type TableTypes = "Operations";

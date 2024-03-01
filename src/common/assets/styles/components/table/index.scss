@@ -9,9 +9,13 @@
 }
 
 .table-template .ant-table-title {
-  @apply text-2xl font-bold;
+  @apply flex justify-between;
 }
 
 .table-template .ant-table-footer .table-footer-container {
   @apply min-h-9;
+}
+
+.table-header-title {
+  @apply text-2xl font-bold;
 }

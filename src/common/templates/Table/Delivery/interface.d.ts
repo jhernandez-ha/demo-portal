@@ -1,9 +1,10 @@
+import { TableOptions } from "@/common/factories/TableFactory/Delivery/interface";
 import { InputRef, TableProps } from "antd";
 
 export type TableTemplateProps = {
   columns: TableProps["columns"];
   columnsData: Utility.JSONValue[];
-  options?: TableProps;
+  options?: TableOptions;
   name: string;
 };
 

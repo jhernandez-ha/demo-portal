@@ -1,7 +1,6 @@
-import { TableFactoryType, TableTypes } from "./interface";
+import { TableFactoryType, TableOptions, TableTypes } from "./interface";
 
 import OperationsTable from "./components/OperationsTable";
-import { TableProps } from "antd";
 
 export default class TableFactory {
   static componentsMap: TableFactoryType = {
@@ -11,7 +10,7 @@ export default class TableFactory {
   static create(
     type: TableTypes,
     tableData: Utility.OperationTableData[] | [],
-    config: TableProps
+    config: TableOptions
   ) {
     const Component = TableFactory.componentsMap[type];
 

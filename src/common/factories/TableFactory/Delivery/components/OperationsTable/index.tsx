@@ -1,11 +1,12 @@
 import "moment/locale/es";
 
+import { LuListFilter } from "react-icons/lu";
 import OperationMethod from "../OperationMethod";
+import { TableOptions } from "../../interface";
 import { TableProps } from "antd";
 import TableTemplate from "@/common/templates/Table/Delivery";
 import { addStyleToPrice } from "@/utils/formatters";
 import moment from "moment";
-import { LuListFilter } from "react-icons/lu";
 
 type MerchantFilterType = {
   text: number;
@@ -112,8 +113,8 @@ const OperationsTable = ({
     },
   ];
 
-  const options: TableProps = {
-    title: () => "Tabla de Operaciones",
+  const options: TableOptions = {
+    tableName: "Tabla de Operaciones",
     ...config,
   };
   return (
