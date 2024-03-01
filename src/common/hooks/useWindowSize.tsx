@@ -6,9 +6,10 @@ const screensSize = screens as Utility.JSONValue;
 
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState<Utility.DimensionType>({
-    width: 0,
-    height: 0,
+    width: undefined,
+    height: undefined,
   });
+
   const [isMediaBreakPointLoading, setIsMediaBreakPointLoading] =
     useState(true);
 
@@ -30,8 +31,8 @@ const useWindowSize = () => {
   }, []); // Empty array ensures that effect is only run on mount
 
   const mediaBreakpoint = useMemo(() => {
-    let device = "xs";
-    if (windowSize.width !== 0) {
+    let device = undefined;
+    if (windowSize.width !== undefined) {
       for (let i = 0; i < breakpoints.length; i++) {
         const breakpoint = breakpoints[i][1];
         if (windowSize.width <= breakpoint) {
@@ -52,6 +53,7 @@ const useWindowSize = () => {
     height: windowSize.height,
     mediaBreakpoint,
     isMediaBreakPointLoading,
+    isMobile: mobileMediaBreakpoints.includes(mediaBreakpoint),
   };
 };
 
@@ -69,5 +71,7 @@ const breakpoints: Utility.JSONValue[] = [
   ["3xl", getPixels(screensSize.xl.max)],
   ["4xl", getPixels(screensSize.xl.min)],
 ];
+
+const mobileMediaBreakpoints = ["xs", "sm", "md", "lg"];
 
 export default useWindowSize;

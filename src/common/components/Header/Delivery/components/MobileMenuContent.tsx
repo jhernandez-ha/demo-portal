@@ -1,11 +1,12 @@
-import { MenuItems } from "@/app/SideBar/MenuItems";
+import { FC, Fragment } from "react";
+
 import CollapsibleMenuItem from "@/common/components/SideBarExpansible/Delivery/components/CollapsibleMenuItem";
-import LinkMenuItem from "@/common/components/SideBarExpansible/Delivery/components/LinkMenuItem";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { FC, Fragment } from "react";
+import LinkMenuItem from "@/common/components/SideBarExpansible/Delivery/components/LinkMenuItem";
+import { MenuItems } from "@/app/SideBar/MenuItems";
 import SimpleBar from "simplebar-react";
+import { usePathname } from "next/navigation";
 
 const MobileMenuContent: FC = () => {
   const pathname = usePathname();

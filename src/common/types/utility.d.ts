@@ -19,7 +19,7 @@ declare namespace Utility {
   };
 
   type DimensionType = {
-    width: number;
-    height: number;
+    width: number | undefined;
+    height: number | undefined;
   };
 }
