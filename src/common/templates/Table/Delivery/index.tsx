@@ -26,8 +26,8 @@ const TableTemplate: FC<TableTemplateProps> = ({
         Object.values(record).some(
           (value) =>
             value &&
-            value.toString().toLowerCase().includes(searchText.toLowerCase())
-        )
+            value.toString().toLowerCase().includes(searchText.toLowerCase()),
+        ),
       );
     }
     return [];
@@ -65,7 +65,12 @@ const TableTemplate: FC<TableTemplateProps> = ({
     };
 
     return (
-      <Table dataSource={tableData} columns={columns} {...defaultOptions} />
+      <Table
+        dataSource={tableData}
+        columns={columns}
+        className="table-template"
+        {...defaultOptions}
+      />
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tableData, columns, options]);

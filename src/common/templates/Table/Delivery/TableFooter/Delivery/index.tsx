@@ -13,21 +13,19 @@ const TableFooter: FC<TableFooterType> = ({ columnsData, fileName }) => {
   return (
     <div className="table-footer-container">
       <Button
-        className="default-button"
+        className="table-button"
         onClick={() => exportToPDF(columnsData, fileName)}
-        type="default"
       >
         <p className="button-text">PDF</p>
       </Button>
-      <Button className="default-button" type="default">
+      <Button className="table-button">
         <CSVLink data={columnsData} filename={`${fileName}_data`}>
           <p className="button-text">CSV</p>
         </CSVLink>
       </Button>
       <Button
-        className="default-button"
+        className="table-button"
         onClick={() => exportToExcel(columnsData, fileName)}
-        type="default"
       >
         <p className="button-text">EXCEL</p>
       </Button>

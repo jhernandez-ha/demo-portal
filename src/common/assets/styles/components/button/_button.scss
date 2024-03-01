@@ -1,3 +1,11 @@
+.table-button {
+  background-color: #e61747 !important;
+}
+
+.table-button:hover {
+  border-color: #e61747 !important;
+}
+
 .button-text {
-  @apply text-[#e61747];
+  @apply text-white;
 }

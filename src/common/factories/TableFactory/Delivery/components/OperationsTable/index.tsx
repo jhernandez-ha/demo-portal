@@ -5,6 +5,7 @@ import { TableProps } from "antd";
 import TableTemplate from "@/common/templates/Table/Delivery";
 import { addStyleToPrice } from "@/utils/formatters";
 import moment from "moment";
+import { LuListFilter } from "react-icons/lu";
 
 type MerchantFilterType = {
   text: number;
@@ -99,6 +100,7 @@ const OperationsTable = ({
       dataIndex: "merchantId",
       filters: merchantsFilters,
       width: "15%",
+      filterIcon: (filtered) => <LuListFilter color="black" />,
       onFilter: (value, record) => {
         return record.merchantId === value;
       },
