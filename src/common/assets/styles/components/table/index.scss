@@ -7,3 +7,11 @@
 .tableContainer {
   @apply flex flex-col gap-y-5;
 }
+
+.table-template .ant-table-title {
+  @apply text-2xl font-bold;
+}
+
+.table-template .ant-table-footer .table-footer-container {
+  @apply min-h-9;
+}
