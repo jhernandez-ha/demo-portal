@@ -1,11 +1,14 @@
-import { Popover } from "antd";
+import { Avatar, Popover } from "antd";
 import { FC } from "react";
 import PopoverContent from "./PopoverContent";
 
 const HeaderMenuRight: FC = () => {
+  const user = "Antonio";
   return (
     <Popover content={<PopoverContent />} trigger={"click"}>
-      <p className="settings-avatar">Antonio</p>
+      <Avatar size="large" shape="circle" className="settings-avatar">
+        {user.slice(0, 1)}
+      </Avatar>
     </Popover>
   );
 };

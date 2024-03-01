@@ -5,8 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import StickyHeader from "./components/StickyHeader";
 import HeaderMenuRight from "./components/HeaderMenuRight";
+import MobileMenu from "./components/MobileMenu";
+import useWindowSize from "@/common/hooks/useWindowSize";
 
 const Header: FC = () => {
+  const { mediaBreakpoint } = useWindowSize();
+
   return (
     <StickyHeader>
       <div className="logo-desktop-container">
@@ -23,16 +27,26 @@ const Header: FC = () => {
 
       <div className="header-gadgets-container">
         <div className="header-left-container">
-          {/* <HamburgerButton
-            view={<Sidebar className="static w-full 2xl:w-full" />}
-          />
-          <Link
-            aria-label="Site Logo"
-            href="/"
-            className="me-4 w-9 shrink-0 text-gray-800 hover:text-gray-900 lg:me-5 xl:hidden"
-          >
-            <Logo iconOnly={true} />
-          </Link> */}
+          {mediaBreakpoint !== "xl" &&
+            mediaBreakpoint !== "2xl" &&
+            mediaBreakpoint !== "3xl" &&
+            mediaBreakpoint !== "4xl" && (
+              <>
+                <MobileMenu />
+                <Link
+                  aria-label="Site Logo"
+                  href="/"
+                  className="me-4 w-12 shrink-0 text-gray-800 hover:text-gray-900 lg:me-5 xl:hidden"
+                >
+                  <Image
+                    src="/isotipo_wipay_blue.png"
+                    alt="logo"
+                    width={200}
+                    height={39}
+                  />
+                </Link>
+              </>
+            )}
           {/* <SearchWidget
             icon={<PiMagnifyingGlass className="me-3 h-[20px] w-[20px]" />}
             className="xl:w-[500px]"

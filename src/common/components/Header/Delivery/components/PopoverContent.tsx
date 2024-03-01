@@ -28,7 +28,10 @@ const PopoverContent: FC = () => {
         ))}
       </div>
       <div className="logout-container">
-        <Button className="logout-button" onClick={() => console.log("exit")}>
+        <Button
+          className="logout-button custom-button"
+          onClick={() => console.log("exit")}
+        >
           Sign Out
         </Button>
       </div>

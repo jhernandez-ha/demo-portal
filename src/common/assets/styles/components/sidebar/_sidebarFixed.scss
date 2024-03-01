@@ -2,7 +2,7 @@
   @apply fixed start-0 top-0 z-50 hidden;
   @apply h-screen w-[100px]  py-3.5;
   @apply xl:flex flex-col items-center gap-10;
-  @apply dark:bg-gray-0 bg-[#0d2845];
+  @apply bg-[#0d2845];
 }
 
 .fixed-menu-expand-button {

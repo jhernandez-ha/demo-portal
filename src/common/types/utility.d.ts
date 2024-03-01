@@ -17,4 +17,9 @@ declare namespace Utility {
     merchantId: number;
     terminalId: number;
   };
+
+  type DimensionType = {
+    width: number;
+    height: number;
+  };
 }
