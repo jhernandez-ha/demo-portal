@@ -4,4 +4,9 @@ declare namespace Utility {
   }
 
   type JSONValue = Record<string, any>;
+
+  type DimensionType = {
+    width: number;
+    height: number;
+  };
 }

@@ -13,7 +13,7 @@
 // }
 
 .header-link {
-  @apply me-4 shrink-0 lg:me-5 block;
+  @apply me-4 shrink-0 lg:me-5 xl:block hidden;
 }
 
 .logo-desktop {
@@ -29,7 +29,7 @@
 }
 
 .header-left-container {
-  @apply flex items-center;
+  @apply flex items-center gap-4;
   @apply max-w-2xl;
   @apply xl:w-auto;
 }

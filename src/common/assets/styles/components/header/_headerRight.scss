@@ -1,5 +1,6 @@
 .settings-avatar {
-  @apply cursor-pointer hover:font-bold text-lg;
+  @apply cursor-pointer bg-gray-300 text-[#e61747] font-bold border-[#0d2845];
+  verticalalign: "middle";
 }
 
 .settings-container {
@@ -28,7 +29,7 @@
   @apply font-medium text-gray-700 focus-within:text-gray-600;
 }
 
-.logout-button:hover {
+.custom-button:hover {
   color: #e61747 !important;
   border-color: #e61747 !important;
 }
