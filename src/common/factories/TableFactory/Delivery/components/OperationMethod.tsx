@@ -21,7 +21,7 @@ const OperationMethod: FC<OperationMethodType> = ({
   return (
     <span className="operationMethodContainer">
       <Image
-        className="h-auto w-6"
+        className="operationBrandLogo"
         src={operationBrandLogo[operationBrand]}
         alt="Brand"
       ></Image>

@@ -1,0 +1,15 @@
+.operationMethodContainer {
+  @apply flex gap-3 items-center;
+}
+
+.operationBrandLogo {
+  @apply h-auto w-[35px];
+}
+
+.operationDateContainer {
+  @apply flex flex-col;
+}
+
+.operationDateMinutes {
+  @apply font-extralight;
+}

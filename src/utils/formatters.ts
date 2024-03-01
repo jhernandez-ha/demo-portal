@@ -27,7 +27,7 @@ export const formatNumberToDecimal = (number: number) => {
 
 export const addStyleToPrice = (number: number, currency: string) => {
   const isNumberPositive = number >= 0;
-  const symbol = isNumberPositive ? "+" : "-";
+  const symbol = isNumberPositive ? "+" : "";
   const colorClass = isNumberPositive ? "text-green" : "text-red";
   const priceString = symbol + formatNumberToDecimal(number) + currency;
   return { colorClass, priceString };

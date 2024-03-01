@@ -1,0 +1,9 @@
+@import "operationsTable/operationsTable";
+
+.table-footer-container {
+  @apply flex gap-x-3;
+}
+
+.tableContainer {
+  @apply flex flex-col gap-y-5;
+}

@@ -4,6 +4,7 @@ export type TableTemplateProps = {
   columns: TableProps["columns"];
   columnsData: Utility.JSONValue[];
   options?: TableProps;
+  name: string;
 };
 
 export interface ColumnSearchProps {

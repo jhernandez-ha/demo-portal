@@ -1,7 +1,7 @@
+import { FC, useMemo, useRef, useState } from "react";
 import { Input, InputRef, Table, TableProps } from "antd";
-import React, { FC, useMemo, useRef, useState } from "react";
 
-import { ColumnsType } from "antd/es/table";
+import TableFooter from "./TableFooter/Delivery";
 import { TableTemplateProps } from "./interface";
 import getColumnSearchProps from "./ColumnSearchPanel/Delivery";
 import { handleMainSearch } from "../Infrastructure/tableFunctions";
@@ -10,6 +10,7 @@ const TableTemplate: FC<TableTemplateProps> = ({
   columns,
   columnsData,
   options,
+  name,
 }) => {
   //* Hooks
   const [searchText, setSearchText] = useState<string>("");
@@ -31,13 +32,6 @@ const TableTemplate: FC<TableTemplateProps> = ({
     return [];
   }, [columnsData, searchText]);
 
-  const footer = () => {
-    if (columnsData && columnsData.length > 0) {
-      return columnsData.length + " registros totales";
-    }
-    return "0 registros totales";
-  };
-
   const children = useMemo(() => {
     if (columns) {
       columns[2] = {
@@ -52,8 +46,13 @@ const TableTemplate: FC<TableTemplateProps> = ({
         ...columns[2],
       };
     }
+
+    const footer = () => {
+      return <TableFooter columnsData={tableData} fileName={name} />;
+    };
+
     const defaultOptions: TableProps = {
-      title: () => "Tabla por defecto",
+      title: () => name,
       pagination: {
         position: ["bottomRight"],
         defaultPageSize: 10,
@@ -72,7 +71,7 @@ const TableTemplate: FC<TableTemplateProps> = ({
 
   //* Render
   return (
-    <div>
+    <div className="tableContainer">
       <div>
         <Input
           placeholder="Buscar..."

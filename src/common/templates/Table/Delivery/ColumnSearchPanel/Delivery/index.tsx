@@ -86,8 +86,9 @@ const getColumnSearchProps = ({
   filterIcon: (filtered: boolean) => (
     <SearchOutlined style={{ color: filtered ? "#1677ff" : undefined }} />
   ),
-  onFilter: (value, record) =>
-    record[dataIndex].toLowerCase().includes((value as string).toLowerCase()),
+  onFilter: (value, record) => {
+    return record[dataIndex].toString().includes(value as string);
+  },
   onFilterDropdownOpenChange: (visible) => {
     if (visible) {
       setTimeout(() => searchInput.current?.select(), 100);

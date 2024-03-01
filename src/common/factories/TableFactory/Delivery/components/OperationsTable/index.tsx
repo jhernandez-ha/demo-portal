@@ -1,10 +1,9 @@
 import "moment/locale/es";
 
-import { addStyleToPrice, formatNumberToDecimal } from "@/utils/formatters";
-
 import OperationMethod from "../OperationMethod";
 import { TableProps } from "antd";
 import TableTemplate from "@/common/templates/Table/Delivery";
+import { addStyleToPrice } from "@/utils/formatters";
 import moment from "moment";
 
 type MerchantFilterType = {
@@ -15,9 +14,11 @@ type MerchantFilterType = {
 const OperationsTable = ({
   tableData,
   config,
+  name,
 }: {
   tableData: Utility.OperationTableData[] | [];
   config: TableProps;
+  name: string;
 }) => {
   const uniqueMerchantsIds = new Set<number>();
 
@@ -52,13 +53,14 @@ const OperationsTable = ({
       defaultSortOrder: "ascend",
       render: (date) => {
         const momentDate = moment(date);
-        const formattedDate = momentDate.format("D [de] MMMM,YYYY").split(",");
+        const formattedDate = momentDate
+          .format("D [de] MMMM [de] YYYY")
+          .split(",");
         const minutes = momentDate.format("hh:mm A");
         return (
-          <span>
-            <p>{formattedDate[0]},</p>
-            <p>{formattedDate[1]}</p>
-            <p>{minutes},</p>
+          <span className="operationDateContainer">
+            <p>{formattedDate}</p>
+            <p className="operationDateMinutes">{minutes}</p>
           </span>
         );
       },
@@ -89,14 +91,15 @@ const OperationsTable = ({
       title: "Num. Terminal",
       key: "terminalId",
       dataIndex: "terminalId",
+      width: "15%",
     },
     {
       title: "Num. Comercio",
       key: "merchantId",
       dataIndex: "merchantId",
       filters: merchantsFilters,
+      width: "15%",
       onFilter: (value, record) => {
-        console.log(record);
         return record.merchantId === value;
       },
     },
@@ -116,6 +119,7 @@ const OperationsTable = ({
       columns={columns}
       columnsData={tableData}
       options={options}
+      name={name}
     />
   );
 };

@@ -16,7 +16,13 @@ export default class TableFactory {
     const Component = TableFactory.componentsMap[type];
 
     if (Component) {
-      return <Component tableData={tableData} config={config}></Component>;
+      return (
+        <Component
+          tableData={tableData}
+          config={config}
+          name={type}
+        ></Component>
+      );
     } else {
       console.error("[TableFactory] No components found");
       return null;

@@ -13,7 +13,7 @@ const OperationsPage: FC = () => {
       merchantId: 1,
       operationBrand: "VISA",
       operationType: "SALE",
-      quantity: 30,
+      quantity: -30,
       terminalId: 1,
     },
     {
