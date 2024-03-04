@@ -40,7 +40,11 @@ const TableHeader: FC<TableHeaderType> = ({
     <>
       <div className="table-header-title">{tableName}</div>
       <div className="table-footer-container">
-        <Dropdown menu={{ items: dropdownList }} placement="bottomLeft">
+        <Dropdown
+          menu={{ items: dropdownList }}
+          trigger={["click"]}
+          placement="bottomLeft"
+        >
           <Button className="table-button">
             <span className="table-button-columns-container">
               <p className="button-text">Columnas</p>

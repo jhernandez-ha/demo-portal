@@ -12,4 +12,17 @@
 
 .table-button-columns-container {
   @apply flex items-center;
+  display: flex !important;
+  gap: 4px !important;
+  color: white !important;
+  align-items: center !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #e61747 !important;
+  border-color: #e61747 !important;
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox .ant-checkbox-inner {
+  border-color: #e61747 !important;
 }
