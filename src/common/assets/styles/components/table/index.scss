@@ -19,3 +19,12 @@
 .table-header-title {
   @apply text-2xl font-bold;
 }
+
+.ant-checkbox-indeterminate .ant-checkbox-inner:after {
+  background-color: #e61747 !important;
+}
+
+.ant-table-column-sorter-up.active,
+.ant-table-column-sorter-down.active {
+  color: #e61747 !important;
+}
