@@ -16,6 +16,15 @@ declare namespace Utility {
     operationBrand: string;
     merchantId: number;
     terminalId: number;
+    statusArray?: StatusArray[];
+  };
+
+  type StatusArray = {
+    date: string;
+    terminalId: number;
+    merchantId: number;
+    operationType: string;
+    status: string;
   };
 
   type DimensionType = {

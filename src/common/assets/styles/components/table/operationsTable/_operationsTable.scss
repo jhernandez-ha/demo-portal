@@ -13,3 +13,18 @@
 .operationDateMinutes {
   @apply font-extralight;
 }
+
+.operation-aprovado .ant-badge-status-text {
+  @apply uppercase;
+  color: #52c41a !important;
+}
+
+.operation-cancelado .ant-badge-status-text {
+  color: red !important;
+  @apply uppercase;
+}
+
+.operation-pendiente .ant-badge-status-text {
+  color: #faad14 !important;
+  @apply uppercase;
+}

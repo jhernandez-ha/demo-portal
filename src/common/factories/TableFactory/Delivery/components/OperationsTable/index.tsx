@@ -7,6 +7,7 @@ import { TableProps } from "antd";
 import TableTemplate from "@/common/templates/Table/Delivery";
 import { addStyleToPrice } from "@/utils/formatters";
 import moment from "moment";
+import OperationStatus from "../OperationStatus";
 
 type MerchantFilterType = {
   text: number;
@@ -41,6 +42,7 @@ const OperationsTable = ({
     })
     .filter((item) => item !== undefined) as MerchantFilterType[];
   const currency = "€";
+
   const columns: TableProps<Utility.JSONValue>["columns"] = [
     {
       title: "ID",
@@ -113,6 +115,54 @@ const OperationsTable = ({
     },
   ];
 
+  const detailsColumns: TableProps<Utility.JSONValue>["columns"] = [
+    {
+      title: "Fecha",
+      dataIndex: "date",
+      key: "date",
+      sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
+      defaultSortOrder: "descend",
+      render: (date) => {
+        const momentDate = moment(date);
+        const formattedDate = momentDate
+          .format("D [de] MMMM [de] YYYY")
+          .split(",");
+        const minutes = momentDate.format("hh:mm A");
+        return (
+          <span className="operationDateContainer">
+            <p>{formattedDate}</p>
+            <p className="operationDateMinutes">{minutes}</p>
+          </span>
+        );
+      },
+    },
+    {
+      title: "Num. Terminal",
+      key: "terminalId",
+      dataIndex: "terminalId",
+      width: "15%",
+    },
+    {
+      title: "Num. Comercio",
+      key: "merchantId",
+      dataIndex: "merchantId",
+      width: "15%",
+    },
+    {
+      title: "Código",
+      dataIndex: "operationType",
+      key: "operationType",
+    },
+    {
+      title: "Estado",
+      dataIndex: "operationStatus",
+      key: "operationStatus",
+      render: (_, record) => {
+        return <OperationStatus status={record.status} />;
+      },
+    },
+  ];
+
   const options: TableOptions = {
     tableName: "Tabla de Operaciones",
     ...config,
@@ -123,6 +173,7 @@ const OperationsTable = ({
       columnsData={tableData}
       options={options}
       name={name}
+      detailsColumns={detailsColumns}
     />
   );
 };

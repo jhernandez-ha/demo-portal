@@ -2,7 +2,7 @@ import { Button, Checkbox, Dropdown, MenuProps, TableProps } from "antd";
 import { exportToExcel, exportToPDF } from "@/utils/exportToDataStructures";
 
 import { CSVLink } from "react-csv";
-import { FC } from "react";
+import React, { FC } from "react";
 import { FaAngleDown } from "react-icons/fa";
 
 type TableHeaderType = {
@@ -10,6 +10,7 @@ type TableHeaderType = {
   fileName: string;
   tableName: string;
   columns: TableProps["columns"];
+  children?: React.ReactNode;
   handleMenuClick: (value: string) => void;
 };
 
@@ -18,6 +19,7 @@ const TableHeader: FC<TableHeaderType> = ({
   tableName,
   fileName,
   columns,
+  children,
   handleMenuClick,
 }) => {
   const dropdownList: MenuProps["items"] = columns
@@ -38,7 +40,10 @@ const TableHeader: FC<TableHeaderType> = ({
 
   return (
     <>
-      <div className="table-header-title">{tableName}</div>
+      <div className="table-header-title">
+        {tableName} {children}
+      </div>
+
       <div className="table-footer-container">
         <Dropdown
           menu={{ items: dropdownList }}

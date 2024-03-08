@@ -14,6 +14,7 @@ const TableTemplate: FC<TableTemplateProps> = ({
   columnsData,
   options,
   name,
+  detailsColumns,
 }) => {
   //* Hooks
   const [searchText, setSearchText] = useState<string>("");
@@ -28,8 +29,8 @@ const TableTemplate: FC<TableTemplateProps> = ({
       prevColumnas?.map((columna) =>
         columna.key === value
           ? { ...columna, hidden: !columna.hidden }
-          : columna
-      )
+          : columna,
+      ),
     );
   };
 
@@ -40,8 +41,8 @@ const TableTemplate: FC<TableTemplateProps> = ({
         Object.values(record).some(
           (value) =>
             value &&
-            value.toString().toLowerCase().includes(searchText.toLowerCase())
-        )
+            value.toString().toLowerCase().includes(searchText.toLowerCase()),
+        ),
       );
     }
     return [];
@@ -71,10 +72,18 @@ const TableTemplate: FC<TableTemplateProps> = ({
         <TableHeader
           columnsData={tableData}
           fileName={name}
-          tableName={options?.tableName || "Tabla"}
+          tableName={options?.tableName || ""}
           columns={visibleColumns}
           handleMenuClick={handleMenuClick}
-        />
+        >
+          <Input
+            prefix={<SearchOutlined />}
+            placeholder="Buscar..."
+            value={searchText}
+            onChange={(e) => handleMainSearch(e, setSearchText)}
+            allowClear={true}
+          />
+        </TableHeader>
       );
     };
 
@@ -96,6 +105,17 @@ const TableTemplate: FC<TableTemplateProps> = ({
         columns={visibleColumns}
         className="table-template"
         {...defaultOptions}
+        expandable={{
+          expandedRowRender: (record) => (
+            <Table
+              columns={detailsColumns}
+              dataSource={record.statusArray}
+              pagination={false}
+              bordered={true}
+            />
+          ),
+          rowExpandable: (record) => record.statusArray !== undefined,
+        }}
       />
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -105,13 +125,13 @@ const TableTemplate: FC<TableTemplateProps> = ({
   return (
     <div className="tableContainer">
       <div>
-        <Input
+        {/* <Input
           prefix={<SearchOutlined />}
           placeholder="Buscar..."
           value={searchText}
           onChange={(e) => handleMainSearch(e, setSearchText)}
           allowClear={true}
-        />
+        /> */}
       </div>
       {children}
     </div>

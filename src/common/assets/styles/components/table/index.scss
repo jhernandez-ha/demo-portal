@@ -28,3 +28,8 @@
 .ant-table-column-sorter-down.active {
   color: #e61747 !important;
 }
+
+.page-title {
+  @apply flex flex-col gap-2;
+  @apply mb-4;
+}

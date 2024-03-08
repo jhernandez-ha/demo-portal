@@ -3,6 +3,8 @@
 import React, { FC } from "react";
 
 import TableFactory from "@/common/factories/TableFactory/Delivery";
+import { Breadcrumb } from "antd";
+import { title } from "process";
 
 const OperationsPage: FC = () => {
   const data: Utility.OperationTableData[] = [
@@ -17,6 +19,22 @@ const OperationsPage: FC = () => {
       operationType: "SALE",
       quantity: -30,
       terminalId: 1,
+      statusArray: [
+        {
+          date: "2024-02-21T11:17:10.689+0000",
+          terminalId: 1,
+          merchantId: 1,
+          operationType: "SALE",
+          status: "pendiente",
+        },
+        {
+          date: "2024-02-22T11:17:10.689+0000",
+          terminalId: 1,
+          merchantId: 1,
+          operationType: "SALE",
+          status: "aprovado",
+        },
+      ],
     },
     {
       key: "2",
@@ -56,9 +74,25 @@ const OperationsPage: FC = () => {
     },
   ];
 
-  const OperationsTableComponent = TableFactory.create("Operations", data, {});
+  const items = [
+    { title: "Adquirencia" },
+    { title: "Transacciones" },
+    { title: "Operaciones" },
+  ];
 
-  return <div className="column">{OperationsTableComponent}</div>;
+  const OperationsTableComponent = TableFactory.create("Operations", data, {
+    tableName: "",
+  });
+
+  return (
+    <>
+      <div className="page-title">
+        <h1>Operaciones</h1>
+        <Breadcrumb items={items} />
+      </div>
+      <div className="column">{OperationsTableComponent}</div>
+    </>
+  );
 };
 
 export default OperationsPage;

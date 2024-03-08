@@ -6,6 +6,7 @@ export type TableTemplateProps = {
   columnsData: Utility.JSONValue[];
   options?: TableOptions;
   name: string;
+  detailsColumns?: TableProps["columns"];
 };
 
 export interface ColumnSearchProps {
@@ -16,7 +17,7 @@ export interface ColumnSearchProps {
   handleSearch: (
     selectedKeys: string[],
     confirm: () => void,
-    dataIndex: string
+    dataIndex: string,
   ) => void;
   handleReset: (clearFilters: (() => void) | undefined) => void;
   setColumnSearchText: React.Dispatch<React.SetStateAction<string>>;
