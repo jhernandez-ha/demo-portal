@@ -13,9 +13,9 @@ const LeftSideExpandible: FC<LeftSideExpandibleProps> = ({
       className={`menu-expansible-container ${isExpanded && "menu-expanded"}`}
     >
       <SimpleBar className="simplebar-menu-expansible">
-        <p className="menu-expansible-title">{selectedMenu.title}</p>
+        <p className="menu-expansible-title">{selectedMenu?.title}</p>
         <div className="menu-expansible-link-container">
-          {selectedMenu.menuItems.map((menu) => (
+          {selectedMenu?.menuItems.map((menu) => (
             <Fragment key={menu.name}>
               {menu.href ? (
                 <LinkMenuItem item={menu} />
