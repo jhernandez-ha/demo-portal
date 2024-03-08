@@ -5,6 +5,8 @@ import SideBar from "@/common/templates/SideBar/Delivery";
 import Header from "@/common/components/Header/Delivery";
 import { useServerInsertedHTML } from "next/navigation";
 import { StyleProvider, createCache, extractStyle } from "@ant-design/cssinjs";
+import { signIn, useSession } from "next-auth/react";
+import { GetServerSideProps } from "next";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -12,6 +14,15 @@ type MainLayoutProps = {
 
 const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { data: session } = useSession();
+
+  if (!session) {
+    // No hay sesión activa, redirigir automáticamente a la página de inicio de sesión de Cognito
+    signIn("cognito");
+    return null;
+  }
+
+  // Aquí renderizas el contenido de tu aplicación para usuarios autenticados
 
   return (
     <StyleProviderLayout>
