@@ -11,7 +11,7 @@ export default function Home() {
     console.log("entro");
 
     // No hay sesión activa, redirigir automáticamente a la página de inicio de sesión de Cognito
-    signIn("cognito");
+    signIn("cognito", { callbackUrl: "/api/auth/callback/cognito" });
     return null;
   }
 

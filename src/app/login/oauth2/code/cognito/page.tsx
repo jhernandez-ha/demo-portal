@@ -1,12 +1,14 @@
 "use client";
 // import {useRouter} from 'next/router'
-import { useSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
 
 export default function Cognito() {
   // const router = useRouter();
+  const session = getSession();
   const { update } = useSession();
+  console.log(session);
 
-  update({ code: "0f5f5617-f56a-4ff1-a564-d67363375ee3" });
+  // update({ code: "0f5f5617-f56a-4ff1-a564-d67363375ee3" });
 
   // router.push("/")
 
